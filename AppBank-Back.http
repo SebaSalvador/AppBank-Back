@@ -1,0 +1,6 @@
+@AppBank_Back_HostAddress = http://localhost:5289
+
+GET {{AppBank_Back_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
