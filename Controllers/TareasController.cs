@@ -28,4 +28,18 @@ public class TareasController : ControllerBase
         _tareas.Add(nuevaTarea);
         return Ok(nuevaTarea); // Devuelve la tarea creada
     }
+
+    // DELETE: api/tareas/5
+    [HttpDelete("{id}")]
+    public IActionResult Delete(int id)
+    {
+        var tarea = _tareas.FirstOrDefault(t => t.Id == id);
+        if (tarea == null)
+        {
+            return NotFound(); // Devuelve 404 si no se encuentra la tarea
+        }
+
+        _tareas.Remove(tarea);
+        return NoContent(); // Devuelve 204 No Content, que significa éxito
+    }
 }
